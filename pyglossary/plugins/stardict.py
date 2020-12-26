@@ -526,6 +526,20 @@ class Writer(object):
 	_audio_goldendict: bool = False
 	_audio_icon: bool = True
 
+	sqliteSortKey = [
+		(
+			"wordlower",
+			"TEXT",
+			lambda x: x[0].lower(),
+		),
+		(
+			"word",
+			"TEXT",
+			lambda x: x[0],
+		),
+		# FIXME: does SQLite sort compares based on text bytes or Unicode?
+	]
+
 	def __init__(self, glos: GlossaryType):
 		self._glos = glos
 		self._filename = None

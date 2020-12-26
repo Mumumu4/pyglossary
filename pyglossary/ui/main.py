@@ -292,6 +292,13 @@ def main():
 			", this is default"
 		),
 	)
+	parser.add_argument(
+		"--sqlite",
+		dest="sqlite",
+		action="store_true",
+		default=None,
+		help="use SQLite as middle storage instead of RAM in direct mode, for very large glossaries",
+	)
 
 	parser.add_argument(
 		"--no-progress-bar",
@@ -454,6 +461,7 @@ def main():
 		"sort",
 		"sortCacheSize",
 		# "sortKey",  # TODO
+		"sqlite",
 	)
 
 	config = {}
